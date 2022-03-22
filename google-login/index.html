@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://accounts.google.com/gsi/client"></script>
+</head>
+
+<body>
+	<div class="login"></div>
+	<script>
+		window.onGoogleLibraryLoad = () => {
+			google.accounts.id.initialize({
+				client_id: '211136995738-slt13o48ntirfhkosn4vjojs7bu60qd2.apps.googleusercontent.com',
+				callback: handleCredentialResponse
+			})
+			google.accounts.id.prompt()
+			google.accounts.id.renderButton(
+				document.querySelector('.login'),
+				{
+					type: 'icon',
+					theme: 'outline',
+					size: 'large',
+					shape: 'circle',
+					logo_alignment: '',
+					width: 400,
+					locale: '',
+				}
+			)
+		}
+
+		function handleCredentialResponse(credential) {
+			console.log(credential)
+		}
+	</script>
+
+</body>
+
+</html>
