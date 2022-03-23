@@ -17,14 +17,24 @@
                 console.log('response', response)
             });
         };
-
     </script>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
     <title>Document</title>
 </head>
 
 <body>
-
+    <button onclick="loginWithFacebook()">Login with Facebook</button>
+    <script>
+        function loginWithFacebook() {
+            FB.login(function (response) {
+                console.log(JSON.stringify(response))
+                if (response.status === 'connected') {
+                } else {
+                }
+                // handle the response 
+            }, { scope: 'public_profile,email'});
+        }
+    </script>
 </body>
 
 </html>
