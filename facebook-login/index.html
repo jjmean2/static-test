@@ -44,7 +44,15 @@
                 console.log(JSON.stringify(response))
             });
         }
-
+    </script>
+    <button onclick="unlinkFromFacebook()">Unlink from facebook</button>
+    <script>
+        function unlinkFromFacebook() {
+            FB.api("/me/permissions", "DELETE", function (response) {
+                console.log('unlinked from facebook')
+                console.log(JSON.stringify(response))
+            });
+        }
     </script>
 </body>
 
