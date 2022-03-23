@@ -18,7 +18,7 @@
             });
         };
     </script>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
     <title>Document</title>
 </head>
 
@@ -27,13 +27,24 @@
     <script>
         function loginWithFacebook() {
             FB.login(function (response) {
+                console.log('logged in with facebook')
                 console.log(JSON.stringify(response))
                 if (response.status === 'connected') {
                 } else {
                 }
                 // handle the response 
-            }, { scope: 'public_profile,email'});
+            }, { scope: 'public_profile,email' });
         }
+    </script>
+    <button onclick="logoutFromFacebook()">Logout from Facebook</button>
+    <script>
+        function logoutFromFacebook() {
+            FB.logout(function (response) {
+                console.log('logged out from facebook')
+                console.log(JSON.stringify(response))
+            });
+        }
+
     </script>
 </body>
 
