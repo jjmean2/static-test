@@ -43,6 +43,24 @@
         <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with"
             data-use-continue-as="true"></div>
     </div>
+    <button onclick="logoutFromFacebook()">Logout from Facebook</button>
+    <script>
+        function logoutFromFacebook() {
+            FB.logout(function (response) {
+                console.log('logged out from facebook')
+                console.log(JSON.stringify(response))
+            });
+        }
+    </script>
+    <button onclick="unlinkFromFacebook()">Unlink from facebook</button>
+    <script>
+        function unlinkFromFacebook() {
+            FB.api("/me/permissions", "DELETE", function (response) {
+                console.log('unlinked from facebook')
+                console.log(JSON.stringify(response))
+            });
+        }
+    </script>
 </body>
 
 </html>
